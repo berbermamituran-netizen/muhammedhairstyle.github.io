@@ -3,185 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUHAMMED TURAN 2700</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <title>MUHAMMED HAIR STUDIO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-color: #050505;
-            background-image: 
-                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            font-family: 'Orbitron', sans-serif;
-            color: #fff;
-            overflow-x: hidden; /* Yan kaymayı engeller ama aşağı inişi serbest bırakır */
+            font-family: 'Montserrat', sans-serif;
+            color: #e0e0e0; /* Kırık Beyaz Yazı Rengi */
+            background-color: #111; /* Resim yüklenmezse görünecek renk */
+            overflow-x: hidden;
+        }
+
+        /* --- ARKA PLAN FOTOĞRAFI AYARI --- */
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Arka plan resmi burada tanımlanıyor */
+            background: url('bg.png') no-repeat center center fixed;
+            background-size: cover; /* Resmi ekrana yay */
+            z-index: -2; /* En arkaya at */
+            filter: blur(3px); /* Hafif bir bulanıklık efekti (isteğe bağlı) */
+        }
+
+        /* Arka planın üzerine gelen karanlık katman (Şeffaflık Efekti) */
+        .dark-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75); /* %75 Siyahlık - Koyu ve Silik Yapar */
+            z-index: -1;
         }
 
         /* --- ÜST BAR (HEADER) --- */
         .header {
             display: flex;
             align-items: center;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.9);
-            border-bottom: 2px solid #0ff;
-            position: sticky; /* Menü yukarıya yapışsın */
+            padding: 15px 20px;
+            background: rgba(20, 20, 20, 0.9); /* Yarı saydam koyu zemin */
+            border-bottom: 2px solid #d4af37; /* Altın Rengi Çizgi */
+            position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .logo-container {
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
-            border: 2px solid #0ff;
+            border: 2px solid #d4af37; /* Altın Çerçeve */
             margin-right: 15px;
             overflow: hidden;
-            animation: parildama 2s infinite alternate;
         }
 
         .logo { width: 100%; height: 100%; object-fit: cover; }
 
-        .header-text h1 { font-size: 16px; margin: 0; color: #fff; text-transform: uppercase; }
-        .header-text p { font-size: 10px; margin: 2px 0 0 0; color: #0ff; }
+        .header-text h1 { font-size: 18px; margin: 0; color: #d4af37; text-transform: uppercase; letter-spacing: 1px; }
+        .header-text p { font-size: 11px; margin: 4px 0 0 0; color: #aaa; font-weight: 400; }
 
-        /* --- GENEL KUTU TASARIMLARI --- */
+        /* --- ANA İÇERİK KUTULARI --- */
+        .main-container {
+            position: relative;
+            z-index: 1; /* Arka planın önünde durması için */
+        }
+
         .bolum {
             max-width: 600px;
-            margin: 30px auto;
-            padding: 20px;
-            background: rgba(15, 15, 15, 0.8);
-            border: 1px solid #333;
-            border-left: 3px solid #0ff; /* Sol taraf mavi çizgi */
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+            margin: 40px auto;
+            padding: 25px;
+            background: rgba(30, 30, 30, 0.85); /* İçerik kutusu arka planı (daha şeffaf) */
+            border: 1px solid #444;
+            border-top: 3px solid #d4af37; /* Üstten Altın Çizgi */
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
         }
 
         h2 {
-            font-size: 18px;
-            color: #0ff;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
+            font-size: 20px;
+            color: #d4af37; /* Altın Başlık Rengi */
+            border-bottom: 1px solid #444;
+            padding-bottom: 12px;
             margin-top: 0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
         }
 
-        /* --- RANDEVU KUTUSU (DÜZELTİLDİ) --- */
+        /* --- RANDEVU KUTUSU --- */
         .randevu-kutusu {
-            /* Yüksekliği serbest bıraktık, artık sıkışmayacak */
-            background: #000; 
-            border: 1px solid #f0f;
+            background: #ffffff; /* Takvimin içi temiz beyaz olsun */
             padding: 5px;
-            border-radius: 10px;
+            border-radius: 5px;
+            overflow: hidden;
         }
 
-        /* --- MAKİNE VE ÜRÜN LİSTESİ --- */
+        /* --- LİSTE ÖĞELERİ (Makine, Ürün vs.) --- */
         .liste-item {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #222;
+            margin-bottom: 20px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
         }
-        .liste-item:last-child { border-bottom: none; }
         
-        .item-resim {
-            width: 60px;
-            height: 60px;
-            background: #222;
+        .item-icon {
+            font-size: 24px;
+            color: #d4af37;
             margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        .item-bilgi h3 { margin: 0; font-size: 16px; color: #fff; }
+        .item-bilgi p { margin: 5px 0 0 0; font-size: 13px; color: #ccc; line-height: 1.4; }
+
+        /* --- GALERİ KUTUSU --- */
+        .galeri-placeholder {
+            width: 100%;
+            height: 180px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px dashed #555;
             border-radius: 5px;
-            border: 1px solid #555;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            color: #888;
+            font-size: 14px;
         }
-
-        .item-bilgi h3 { margin: 0; font-size: 14px; color: #fff; }
-        .item-bilgi p { margin: 5px 0 0 0; font-size: 11px; color: #aaa; }
+        .galeri-placeholder i { font-size: 30px; margin-bottom: 10px; color: #d4af37; }
 
         .footer {
             text-align: center;
             padding: 30px;
-            font-size: 10px;
-            color: #444;
+            font-size: 11px;
+            color: #888;
+            background: rgba(10, 10, 10, 0.9);
+            border-top: 1px solid #333;
         }
-
-        @keyframes parildama { from { box-shadow: 0 0 5px #0ff; } to { box-shadow: 0 0 15px #0ff; } }
     </style>
 </head>
 <body>
 
-    <div class="header">
+    <div class="background-overlay"></div> <div class="dark-overlay"></div> <div class="header">
         <div class="logo-container">
             <img src="logo.jpg" alt="Logo" class="logo">
         </div>
         <div class="header-text">
             <h1>Muhammed</h1>
-            <p>Hair Studio // Professional</p>
+            <p>Hair Studio // Est. 2023</p>
         </div>
     </div>
 
-    <div class="bolum">
-        <h2 style="color: #f0f;">/// RANDEVU OLUŞTUR</h2>
-        <p style="font-size: 11px; color: #ccc;">Aşağıdaki takvimden boş saatleri seçebilirsiniz.</p>
-        
-        <div class="randevu-kutusu">
-            <div class="calendly-inline-widget" data-url="https://calendly.com/berbermamituran/30min" style="min-width:300px;height:650px;"></div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-        </div>
-    </div>
-
-    <div class="bolum">
-        <h2>/// MAKİNE PARKURU</h2>
-        
-        <div class="liste-item">
-            <div class="item-resim">✂️</div> <div class="item-bilgi">
-                <h3>Wahl Magic Clip</h3>
-                <p>Kusursuz geçişler ve "fade" kesimler için özel seri.</p>
+    <div class="main-container">
+        <div class="bolum">
+            <h2>Randevu Oluştur</h2>
+            <p style="font-size: 13px; color: #ccc; margin-bottom: 20px;">Aşağıdaki takvimden size uygun saati seçebilirsiniz.</p>
+            
+            <div class="randevu-kutusu">
+                <div class="calendly-inline-widget" data-url="https://calendly.com/berbermamituran/30min" style="min-width:300px;height:650px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
             </div>
         </div>
 
-        <div class="liste-item">
-            <div class="item-resim">🔋</div>
-            <div class="item-bilgi">
-                <h3>Andis Shaver</h3>
-                <p>Sıfır sakal ve pürüzsüz ense tıraşı teknolojisi.</p>
+        <div class="bolum">
+            <h2>Hizmet Standartlarımız</h2>
+            
+            <div class="liste-item">
+                <div class="item-icon">✦</div>
+                <div class="item-bilgi">
+                    <h3>Profesyonel Ekipman</h3>
+                    <p>En son teknoloji Wahl ve Andis serisi makinelerle kusursuz, pürüzsüz kesimler.</p>
+                </div>
+            </div>
+
+            <div class="liste-item">
+                <div class="item-icon">✦</div>
+                <div class="item-bilgi">
+                    <h3>Hijyen Önceliği</h3>
+                    <p>Tüm ekipmanlar her müşteriden önce özel solüsyonlarla sterilize edilir.</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="bolum">
-        <h2>/// KULLANILAN ÜRÜNLER</h2>
-        
-        <div class="liste-item">
-            <div class="item-resim">🧴</div>
-            <div class="item-bilgi">
-                <h3>Mat Wax Serisi</h3>
-                <p>Doğal görünüm, güçlü tutuş. Yağlanma yapmaz.</p>
+        <div class="bolum">
+            <h2>Kullanılan Ürünler</h2>
+            
+            <div class="liste-item">
+                <div class="item-icon">🧴</div>
+                <div class="item-bilgi">
+                    <h3>Premium Şekillendiriciler</h3>
+                    <p>Saçı ağırlaştırmayan, doğal görünümlü mat wax ve güçlü tutuşlu spreyler.</p>
+                </div>
+            </div>
+
+            <div class="liste-item">
+                <div class="item-icon">✨</div>
+                <div class="item-bilgi">
+                    <h3>Bakım & Onarım</h3>
+                    <p>Saç derisini ferahlatan ve besleyen özel formüllü tonikler.</p>
+                </div>
             </div>
         </div>
 
-        <div class="liste-item">
-            <div class="item-resim">✨</div>
-            <div class="item-bilgi">
-                <h3>Saç Toniği & Bakım</h3>
-                <p>Ferahlatıcı etki ve saç kökü besleyici formül.</p>
+        <div class="bolum">
+            <h2>Müşteri Galerisi</h2>
+            <div class="galeri-placeholder">
+                <i>📷</i>
+                <span>Son çalışmalarımız çok yakında...</span>
             </div>
-        </div>
-    </div>
-
-    <div class="bolum">
-        <h2>/// MÜŞTERİ GALERİSİ</h2>
-        <p style="font-size: 11px;">Son çalışmalarımız yakında buraya eklenecektir...</p>
-        <div style="width: 100%; height: 150px; background: #111; border: 1px dashed #555; display: flex; align-items: center; justify-content: center; color: #555;">
-            FOTOĞRAF ALANI
         </div>
     </div>
 
     <div class="footer">
-        &copy; 2025 MUHAMMED TURAN HAIR STUDIO
+        &copy; 2025 MUHAMMED HAIR STUDIO. Tüm Hakları Saklıdır.
     </div>
 
 </body>
