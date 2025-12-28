@@ -22,7 +22,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Tabela fotoğrafı: mamiko.jpg */
             background: url('mamiko.jpg') no-repeat center center fixed;
             background-size: cover;
             z-index: -2;
@@ -104,10 +103,40 @@
         /* LİSTE TASARIMI */
         .liste-item { margin-bottom: 15px; display: flex; align-items: flex-start; border-bottom: 1px solid #333; padding-bottom: 15px; }
         .liste-item:last-child { border-bottom: none; }
-        
         .item-icon { font-size: 22px; margin-right: 15px; color: #d4af37; }
         .item-bilgi h3 { margin: 0; font-size: 15px; color: #fff; }
         .item-bilgi p { margin: 4px 0 0 0; font-size: 12px; color: #bbb; line-height: 1.4; }
+
+        /* --- YENİ EKLENEN FOTOĞRAF GALERİSİ --- */
+        .galeri-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Yan yana 2 foto */
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .galeri-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            border: 1px solid #444;
+        }
+        .galeri-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+        }
+        .galeri-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            font-size: 10px;
+            padding: 5px;
+            text-align: center;
+        }
 
         .footer { text-align: center; padding: 30px; font-size: 11px; color: #666; background: #0a0a0a; }
     </style>
@@ -140,6 +169,30 @@
         <div class="randevu-kutusu">
             <div class="calendly-inline-widget" data-url="https://calendly.com/berbermamituran/30min" style="min-width:300px;height:700px;"></div>
             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+    </div>
+
+    <div class="bolum">
+        <h2>Saç Modellerimiz</h2>
+        <p style="font-size: 12px; color:#aaa;">Tarzınızı yansıtan modeli seçin.</p>
+        
+        <div class="galeri-grid">
+            <div class="galeri-item">
+                <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=400&q=80" alt="Model 1">
+                <div class="galeri-label">SKIN FADE</div>
+            </div>
+            <div class="galeri-item">
+                <img src="https://images.unsplash.com/photo-1599351431202-6e0005a74154?w=400&q=80" alt="Model 2">
+                <div class="galeri-label">SAKAL TASARIM</div>
+            </div>
+            <div class="galeri-item">
+                <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=400&q=80" alt="Model 3">
+                <div class="galeri-label">KLASİK KESİM</div>
+            </div>
+            <div class="galeri-item">
+                <img src="https://images.unsplash.com/photo-1593702295094-aec8c569d481?w=400&q=80" alt="Model 4">
+                <div class="galeri-label">MODERN STİL</div>
+            </div>
         </div>
     </div>
 
