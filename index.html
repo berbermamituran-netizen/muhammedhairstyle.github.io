@@ -15,113 +15,173 @@
                 linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
             font-family: 'Orbitron', sans-serif;
-            color: #0ff;
-            overflow-x: hidden;
+            color: #fff;
+            overflow-x: hidden; /* Yan kaymayı engeller ama aşağı inişi serbest bırakır */
         }
 
-        /* Üst Bar (Header) Ayarları */
+        /* --- ÜST BAR (HEADER) --- */
         .header {
             display: flex;
-            align-items: center; /* Ortalar */
+            align-items: center;
             padding: 15px;
-            background: rgba(0, 0, 0, 0.8);
-            border-bottom: 1px solid #0ff;
-            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.9);
+            border-bottom: 2px solid #0ff;
+            position: sticky; /* Menü yukarıya yapışsın */
+            top: 0;
+            z-index: 1000;
         }
 
-        /* Logo Artık Sol Üstte ve Daha Küçük */
         .logo-container {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             border: 2px solid #0ff;
-            padding: 3px;
-            margin-right: 15px; /* Yazıyla arasındaki boşluk */
-            animation: donme 5s linear infinite;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-            flex-shrink: 0;
+            margin-right: 15px;
+            overflow: hidden;
+            animation: parildama 2s infinite alternate;
         }
 
-        .logo {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
+        .logo { width: 100%; height: 100%; object-fit: cover; }
+
+        .header-text h1 { font-size: 16px; margin: 0; color: #fff; text-transform: uppercase; }
+        .header-text p { font-size: 10px; margin: 2px 0 0 0; color: #0ff; }
+
+        /* --- GENEL KUTU TASARIMLARI --- */
+        .bolum {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background: rgba(15, 15, 15, 0.8);
+            border: 1px solid #333;
+            border-left: 3px solid #0ff; /* Sol taraf mavi çizgi */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
         }
 
-        /* İsim Logunun Yanında */
-        .header-text h1 {
+        h2 {
             font-size: 18px;
-            margin: 0;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 5px #0ff;
+            color: #0ff;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            margin-top: 0;
         }
 
-        .header-text p {
-            font-size: 10px;
-            margin: 3px 0 0 0;
-            color: #f0f;
-        }
-
-        @keyframes donme {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* ANA İÇERİK */
-        .container {
-            max-width: 500px; /* Sayfayı daralttık */
-            margin: 20px auto;
-            padding: 10px;
-            text-align: center;
-        }
-
-        /* Randevu Kutusu - Daha Küçük ve Kompakt */
+        /* --- RANDEVU KUTUSU (DÜZELTİLDİ) --- */
         .randevu-kutusu {
-            width: 90%; /* Mobilde kenarlardan boşluk kalsın */
-            max-width: 350px; /* Bilgisayarda çok büyümesin */
-            height: 500px; /* Boyunu kısalttık */
-            margin: 0 auto; /* Ortala */
-            background: rgba(10, 10, 10, 0.9);
-            border: 1px solid #f0f; /* Pembe Çerçeve */
-            border-radius: 10px;
+            /* Yüksekliği serbest bıraktık, artık sıkışmayacak */
+            background: #000; 
+            border: 1px solid #f0f;
             padding: 5px;
-            box-shadow: 0 0 20px rgba(255, 0, 255, 0.15);
-            overflow: hidden; /* Taşmayı engelle */
+            border-radius: 10px;
         }
+
+        /* --- MAKİNE VE ÜRÜN LİSTESİ --- */
+        .liste-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #222;
+            display: flex;
+            align-items: center;
+        }
+        .liste-item:last-child { border-bottom: none; }
+        
+        .item-resim {
+            width: 60px;
+            height: 60px;
+            background: #222;
+            margin-right: 15px;
+            border-radius: 5px;
+            border: 1px solid #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .item-bilgi h3 { margin: 0; font-size: 14px; color: #fff; }
+        .item-bilgi p { margin: 5px 0 0 0; font-size: 11px; color: #aaa; }
 
         .footer {
-            margin-top: 20px;
-            color: #555;
+            text-align: center;
+            padding: 30px;
             font-size: 10px;
+            color: #444;
         }
+
+        @keyframes parildama { from { box-shadow: 0 0 5px #0ff; } to { box-shadow: 0 0 15px #0ff; } }
     </style>
 </head>
 <body>
 
     <div class="header">
         <div class="logo-container">
-            <img src="logo.jpg" alt="Profil" class="logo">
+            <img src="logo.jpg" alt="Logo" class="logo">
         </div>
         <div class="header-text">
             <h1>Muhammed</h1>
-            <p>Hair Studio // 2700</p>
+            <p>Hair Studio // Professional</p>
         </div>
     </div>
 
-    <div class="container">
-        <p style="font-size: 12px; color: #aaa; margin-bottom: 15px;">AŞAĞIDAN SAAT SEÇİNİZ</p>
-
+    <div class="bolum">
+        <h2 style="color: #f0f;">/// RANDEVU OLUŞTUR</h2>
+        <p style="font-size: 11px; color: #ccc;">Aşağıdaki takvimden boş saatleri seçebilirsiniz.</p>
+        
         <div class="randevu-kutusu">
-            <div class="calendly-inline-widget" data-url="https://calendly.com/berbermamituran/30min" style="min-width:300px;height:500px;"></div>
+            <div class="calendly-inline-widget" data-url="https://calendly.com/berbermamituran/30min" style="min-width:300px;height:650px;"></div>
             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </div>
+    </div>
 
-        <div class="footer">
-            &copy; 2025 DESIGNED BY NETIZEN
+    <div class="bolum">
+        <h2>/// MAKİNE PARKURU</h2>
+        
+        <div class="liste-item">
+            <div class="item-resim">✂️</div> <div class="item-bilgi">
+                <h3>Wahl Magic Clip</h3>
+                <p>Kusursuz geçişler ve "fade" kesimler için özel seri.</p>
+            </div>
         </div>
+
+        <div class="liste-item">
+            <div class="item-resim">🔋</div>
+            <div class="item-bilgi">
+                <h3>Andis Shaver</h3>
+                <p>Sıfır sakal ve pürüzsüz ense tıraşı teknolojisi.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bolum">
+        <h2>/// KULLANILAN ÜRÜNLER</h2>
+        
+        <div class="liste-item">
+            <div class="item-resim">🧴</div>
+            <div class="item-bilgi">
+                <h3>Mat Wax Serisi</h3>
+                <p>Doğal görünüm, güçlü tutuş. Yağlanma yapmaz.</p>
+            </div>
+        </div>
+
+        <div class="liste-item">
+            <div class="item-resim">✨</div>
+            <div class="item-bilgi">
+                <h3>Saç Toniği & Bakım</h3>
+                <p>Ferahlatıcı etki ve saç kökü besleyici formül.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bolum">
+        <h2>/// MÜŞTERİ GALERİSİ</h2>
+        <p style="font-size: 11px;">Son çalışmalarımız yakında buraya eklenecektir...</p>
+        <div style="width: 100%; height: 150px; background: #111; border: 1px dashed #555; display: flex; align-items: center; justify-content: center; color: #555;">
+            FOTOĞRAF ALANI
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 MUHAMMED TURAN HAIR STUDIO
     </div>
 
 </body>
