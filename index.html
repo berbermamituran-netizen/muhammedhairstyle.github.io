@@ -38,7 +38,7 @@
             z-index: -1;
         }
 
-        /* ÜST MENÜ */
+        /* HEADER */
         .header {
             display: flex;
             align-items: center;
@@ -75,14 +75,7 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.5);
         }
 
-        h2 { 
-            font-size: 18px; 
-            color: #d4af37; 
-            border-bottom: 1px solid #444; 
-            padding-bottom: 10px; 
-            margin-top: 0; 
-            text-transform: uppercase; 
-        }
+        h2 { font-size: 18px; color: #d4af37; border-bottom: 1px solid #444; padding-bottom: 10px; margin-top: 0; text-transform: uppercase; }
 
         /* UYARI KUTUSU */
         .uyari-kutusu {
@@ -95,22 +88,20 @@
             font-size: 13px;
             text-align: center;
             font-weight: bold;
-            line-height: 1.5;
         }
 
         .randevu-kutusu { background: #fff; padding: 5px; border-radius: 5px; overflow: hidden; }
 
-        /* LİSTE TASARIMI */
         .liste-item { margin-bottom: 15px; display: flex; align-items: flex-start; border-bottom: 1px solid #333; padding-bottom: 15px; }
         .liste-item:last-child { border-bottom: none; }
         .item-icon { font-size: 22px; margin-right: 15px; color: #d4af37; }
         .item-bilgi h3 { margin: 0; font-size: 15px; color: #fff; }
         .item-bilgi p { margin: 4px 0 0 0; font-size: 12px; color: #bbb; line-height: 1.4; }
 
-        /* --- YENİ EKLENEN FOTOĞRAF GALERİSİ --- */
+        /* FOTO GALERİ */
         .galeri-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Yan yana 2 foto */
+            grid-template-columns: 1fr 1fr;
             gap: 10px;
             margin-top: 15px;
         }
@@ -123,7 +114,7 @@
         .galeri-item img {
             width: 100%;
             height: 150px;
-            object-fit: cover;
+            object-fit: cover; /* Resmi kutuya sığdırır */
             display: block;
         }
         .galeri-label {
@@ -158,14 +149,12 @@
 
     <div class="bolum">
         <h2>Randevu Oluştur</h2>
-        
         <div class="uyari-kutusu">
             ⚠️ <strong>ÖNEMLİ HATIRLATMA</strong><br>
             Lütfen randevu alırken isminizin yanına<br>
             <span style="color:#d4af37; text-decoration:underline;">TELEFON NO</span> ve <span style="color:#d4af37; text-decoration:underline;">ODA NUMARASI</span><br>
             eklemeyi unutmayın!
         </div>
-
         <div class="randevu-kutusu">
             <div class="calendly-inline-widget" data-url="https://calendly.com/berbermamituran/30min" style="min-width:300px;height:700px;"></div>
             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
@@ -174,23 +163,23 @@
 
     <div class="bolum">
         <h2>Saç Modellerimiz</h2>
-        <p style="font-size: 12px; color:#aaa;">Tarzınızı yansıtan modeli seçin.</p>
+        <p style="font-size: 12px; color:#aaa;">Sizden gelen kareler.</p>
         
         <div class="galeri-grid">
             <div class="galeri-item">
-                <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=400&q=80" alt="Model 1">
+                <img src="sac1.jpg" alt="Model 1">
                 <div class="galeri-label">SKIN FADE</div>
             </div>
             <div class="galeri-item">
-                <img src="https://images.unsplash.com/photo-1599351431202-6e0005a74154?w=400&q=80" alt="Model 2">
+                <img src="sac2.jpg" alt="Model 2">
                 <div class="galeri-label">SAKAL TASARIM</div>
             </div>
             <div class="galeri-item">
-                <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=400&q=80" alt="Model 3">
+                <img src="sac3.jpg" alt="Model 3">
                 <div class="galeri-label">KLASİK KESİM</div>
             </div>
             <div class="galeri-item">
-                <img src="https://images.unsplash.com/photo-1593702295094-aec8c569d481?w=400&q=80" alt="Model 4">
+                <img src="sac4.jpg" alt="Model 4">
                 <div class="galeri-label">MODERN STİL</div>
             </div>
         </div>
@@ -200,45 +189,27 @@
         <h2>Hizmetlerimiz</h2>
         <div class="liste-item">
             <div class="item-icon">✂️</div>
-            <div class="item-bilgi">
-                <h3>Tüm Saç Modelleri</h3>
-                <p>Fade, Klasik, Modern Kesim ve Subay Tıraşı.</p>
-            </div>
+            <div class="item-bilgi"><h3>Tüm Saç Modelleri</h3><p>Fade, Klasik, Modern Kesim.</p></div>
         </div>
         <div class="liste-item">
             <div class="item-icon">📐</div>
-            <div class="item-bilgi">
-                <h3>Kaş Tasarımı</h3>
-                <p>Yüz hattına uygun profesyonel kaş dizaynı.</p>
-            </div>
+            <div class="item-bilgi"><h3>Kaş Tasarımı</h3><p>Yüz hattına uygun dizayn.</p></div>
         </div>
     </div>
 
     <div class="bolum">
         <h2>Ekipman & Bakım</h2>
-        
         <div class="liste-item">
             <div class="item-icon">⚡</div>
-            <div class="item-bilgi">
-                <h3>Babyliss Pro SnapFX</h3>
-                <p>Sınırsız güç ve hassas kesim teknolojisi.</p>
-            </div>
+            <div class="item-bilgi"><h3>Babyliss Pro SnapFX</h3><p>Sınırsız güç ve hassas kesim.</p></div>
         </div>
-
         <div class="liste-item">
             <div class="item-icon">🧪</div>
-            <div class="item-bilgi">
-                <h3>Saç Keratini</h3>
-                <p>Yıpranmış saçlar için tam onarım.</p>
-            </div>
+            <div class="item-bilgi"><h3>Saç Keratini</h3><p>Yıpranmış saçlar için onarım.</p></div>
         </div>
-
         <div class="liste-item">
             <div class="item-icon">🐲</div>
-            <div class="item-bilgi">
-                <h3>Ejder Meyveli Yüz Maskesi</h3>
-                <p>Canlandırıcı, ferahlatıcı ve vitamin deposu cilt bakımı.</p>
-            </div>
+            <div class="item-bilgi"><h3>Ejder Meyveli Maske</h3><p>Canlandırıcı cilt bakımı.</p></div>
         </div>
     </div>
 
