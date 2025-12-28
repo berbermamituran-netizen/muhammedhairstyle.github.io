@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUHAMMED TURAN 2700</title>
+    <title>MUHAMMED TURAN HAİR STYLE</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -13,32 +13,33 @@
             background-image: 
                 linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px; /* Matrix ızgarası */
+            background-size: 40px 40px;
             font-family: 'Orbitron', sans-serif;
-            color: #0ff; /* Neon Camgöbeği */
-            text-align: center;
+            color: #0ff;
             overflow-x: hidden;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
+        /* Üst Bar (Header) Ayarları */
+        .header {
+            display: flex;
+            align-items: center; /* Ortalar */
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #0ff;
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.1);
         }
 
-        /* Logo Efekti - Sanki havada süzülüyor */
+        /* Logo Artık Sol Üstte ve Daha Küçük */
         .logo-container {
-            position: relative;
-            width: 160px;
-            height: 160px;
-            margin: 30px auto;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
-            padding: 5px;
-            background: linear-gradient(45deg, #0ff, #f0f);
-            animation: donme 4s linear infinite;
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            border: 2px solid #0ff;
+            padding: 3px;
+            margin-right: 15px; /* Yazıyla arasındaki boşluk */
+            animation: donme 5s linear infinite;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            flex-shrink: 0;
         }
 
         .logo {
@@ -46,100 +47,80 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #000;
-            position: relative;
-            z-index: 2;
+        }
+
+        /* İsim Logunun Yanında */
+        .header-text h1 {
+            font-size: 18px;
+            margin: 0;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 5px #0ff;
+        }
+
+        .header-text p {
+            font-size: 10px;
+            margin: 3px 0 0 0;
+            color: #f0f;
         }
 
         @keyframes donme {
-            0% { transform: rotate(0deg); filter: hue-rotate(0deg); }
-            100% { transform: rotate(360deg); filter: hue-rotate(360deg); }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
-        /* Başlık Efekti - Glitch / Arıza */
-        h1 {
-            font-size: 32px;
-            margin-top: 10px;
-            letter-spacing: 4px;
-            color: #fff;
-            text-shadow: 
-                0 0 5px #0ff,
-                0 0 10px #0ff,
-                0 0 20px #0ff;
-            animation: parildama 1.5s infinite alternate;
-        }
-
-        @keyframes parildama {
-            from { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
-            to { text-shadow: 0 0 20px #f0f, 0 0 30px #f0f; }
-        }
-
-        p.slogan {
-            font-size: 14px;
-            color: #f0f; /* Neon Pembe */
-            margin-bottom: 40px;
-            letter-spacing: 2px;
-            border-top: 1px solid #f0f;
-            border-bottom: 1px solid #f0f;
-            display: inline-block;
-            padding: 5px 20px;
-            background: rgba(255, 0, 255, 0.1);
-        }
-
-        /* Randevu Kutusu - Cam Panel Görünümü */
-        .randevu-kutusu {
-            background: rgba(10, 10, 10, 0.8);
-            border: 2px solid #0ff;
-            border-radius: 15px;
+        /* ANA İÇERİK */
+        .container {
+            max-width: 500px; /* Sayfayı daralttık */
+            margin: 20px auto;
             padding: 10px;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2), inset 0 0 20px rgba(0, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
+            text-align: center;
         }
 
-        /* Tarama Çizgisi Efekti */
-        .randevu-kutusu::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, transparent, #0ff, transparent);
-            animation: tarama 3s infinite;
-        }
-
-        @keyframes tarama {
-            0% { left: -100%; }
-            100% { left: 100%; }
+        /* Randevu Kutusu - Daha Küçük ve Kompakt */
+        .randevu-kutusu {
+            width: 90%; /* Mobilde kenarlardan boşluk kalsın */
+            max-width: 350px; /* Bilgisayarda çok büyümesin */
+            height: 500px; /* Boyunu kısalttık */
+            margin: 0 auto; /* Ortala */
+            background: rgba(10, 10, 10, 0.9);
+            border: 1px solid #f0f; /* Pembe Çerçeve */
+            border-radius: 10px;
+            padding: 5px;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.15);
+            overflow: hidden; /* Taşmayı engelle */
         }
 
         .footer {
-            margin-top: 40px;
-            color: #444;
+            margin-top: 20px;
+            color: #555;
             font-size: 10px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="header">
         <div class="logo-container">
-            <img src="logo.jpg" alt="Muhammed Turan" class="logo">
+            <img src="logo.jpg" alt="Profil" class="logo">
         </div>
-        
-        <h1>MUHAMMED<br>STYLIST</h1>
-        <p class="slogan">/// SYSTEM: READY ///</p>
+        <div class="header-text">
+            <h1>Muhammed</h1>
+            <p>Hair Studio // 2700</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <p style="font-size: 12px; color: #aaa; margin-bottom: 15px;">AŞAĞIDAN SAAT SEÇİNİZ</p>
 
         <div class="randevu-kutusu">
-            <div class="calendly-inline-widget" data-url="https://calendly.com/berbermamituran/30min" style="min-width:320px;height:700px;"></div>
+            <div class="calendly-inline-widget" data-url="https://calendly.com/berbermamituran/30min" style="min-width:300px;height:500px;"></div>
             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </div>
 
         <div class="footer">
-            DESIGNED FOR THE FUTURE &copy; 2025
+            &copy; 2025 DESIGNED BY NETIZEN
         </div>
     </div>
 
