@@ -15,18 +15,17 @@
             overflow-x: hidden;
         }
 
-        /* ARKA PLAN AYARI */
+        /* ARKA PLAN AYARI - Tabela Fotoğrafı */
         .background-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            /* FOTOĞRAF İSMİNİ BURAYA YAZDIM: mamiko.jpg */
             background: url('mamiko.jpg') no-repeat center center fixed;
             background-size: cover;
             z-index: -2;
-            filter: blur(2px); /* Hafif bulanık olsun ki yazılar okunsun */
+            filter: blur(3px); /* Yazılar okunsun diye hafif bulanık */
         }
 
         .dark-overlay {
@@ -35,11 +34,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8); /* Arka planı karartır */
+            background: rgba(0, 0, 0, 0.85); /* Arka planı karartma */
             z-index: -1;
         }
 
-        /* HEADER */
+        /* ÜST MENÜ */
         .header {
             display: flex;
             align-items: center;
@@ -52,8 +51,8 @@
         }
 
         .logo-container {
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             border: 2px solid #d4af37;
             margin-right: 15px;
@@ -61,10 +60,10 @@
         }
         .logo { width: 100%; height: 100%; object-fit: cover; }
 
-        .header-text h1 { font-size: 16px; margin: 0; color: #d4af37; text-transform: uppercase; }
-        .header-text p { font-size: 10px; margin: 2px 0 0 0; color: #aaa; }
+        .header-text h1 { font-size: 17px; margin: 0; color: #d4af37; text-transform: uppercase; letter-spacing: 1px; }
+        .header-text p { font-size: 11px; margin: 3px 0 0 0; color: #aaa; }
 
-        /* KUTULAR */
+        /* İÇERİK KUTULARI */
         .bolum {
             max-width: 600px;
             margin: 30px auto;
@@ -73,20 +72,42 @@
             border: 1px solid #444;
             border-top: 3px solid #d4af37;
             border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
         }
 
-        h2 { font-size: 18px; color: #d4af37; border-bottom: 1px solid #444; padding-bottom: 10px; margin-top: 0; text-transform: uppercase; }
+        h2 { 
+            font-size: 18px; 
+            color: #d4af37; 
+            border-bottom: 1px solid #444; 
+            padding-bottom: 10px; 
+            margin-top: 0; 
+            text-transform: uppercase; 
+        }
+
+        /* UYARI MESAJI */
+        .uyari-kutusu {
+            background-color: rgba(212, 175, 55, 0.1);
+            border: 1px dashed #d4af37;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            color: #ffdddd;
+            font-size: 12px;
+            text-align: center;
+            font-weight: bold;
+        }
 
         .randevu-kutusu { background: #fff; padding: 5px; border-radius: 5px; overflow: hidden; }
 
-        /* LİSTE */
-        .liste-item { margin-bottom: 15px; display: flex; align-items: center; border-bottom: 1px solid #333; padding-bottom: 15px; }
+        /* LİSTE ÖĞELERİ */
+        .liste-item { margin-bottom: 15px; display: flex; align-items: flex-start; border-bottom: 1px solid #333; padding-bottom: 15px; }
         .liste-item:last-child { border-bottom: none; }
-        .item-icon { font-size: 20px; margin-right: 15px; }
-        .item-bilgi h3 { margin: 0; font-size: 14px; color: #fff; }
-        .item-bilgi p { margin: 3px 0 0 0; font-size: 11px; color: #bbb; }
+        
+        .item-icon { font-size: 22px; margin-right: 15px; color: #d4af37; }
+        .item-bilgi h3 { margin: 0; font-size: 15px; color: #fff; }
+        .item-bilgi p { margin: 4px 0 0 0; font-size: 12px; color: #bbb; line-height: 1.4; }
 
-        .footer { text-align: center; padding: 30px; font-size: 10px; color: #666; }
+        .footer { text-align: center; padding: 30px; font-size: 11px; color: #666; background: #0a0a0a; }
     </style>
 </head>
 <body>
@@ -100,12 +121,17 @@
         </div>
         <div class="header-text">
             <h1>Muhammed</h1>
-            <p>Hair Studio // Est. 2023</p>
+            <p>Hair Studio // Profesyonel Bakım</p>
         </div>
     </div>
 
     <div class="bolum">
         <h2>Randevu Oluştur</h2>
+        
+        <div class="uyari-kutusu">
+            ⚠️ DİKKAT: Lütfen isminizin yanına TEL NO ve ODA NUMARASI yazmayı unutmayın!
+        </div>
+
         <div class="randevu-kutusu">
             <div class="calendly-inline-widget" data-url="https://calendly.com/berbermamituran/30min" style="min-width:300px;height:650px;"></div>
             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
@@ -113,14 +139,48 @@
     </div>
 
     <div class="bolum">
-        <h2>Ekipman & Ürünler</h2>
+        <h2>Hizmetlerimiz</h2>
         <div class="liste-item">
             <div class="item-icon">✂️</div>
-            <div class="item-bilgi"><h3>Wahl & Andis</h3><p>Profesyonel kesim makineleri.</p></div>
+            <div class="item-bilgi">
+                <h3>Tüm Saç Modelleri</h3>
+                <p>Modern kesim, Fade, Klasik ve Tarz modeller.</p>
+            </div>
         </div>
         <div class="liste-item">
-            <div class="item-icon">🧴</div>
-            <div class="item-bilgi"><h3>Mat Wax</h3><p>Doğal görünüm, güçlü tutuş.</p></div>
+            <div class="item-icon">📐</div>
+            <div class="item-bilgi">
+                <h3>Kaş Tasarımı</h3>
+                <p>Yüz hattınıza uygun profesyonel kaş dizaynı.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bolum">
+        <h2>Ekipman & Bakım Ürünleri</h2>
+        
+        <div class="liste-item">
+            <div class="item-icon">⚡</div>
+            <div class="item-bilgi">
+                <h3>Babyliss Pro SnapFX</h3>
+                <p>Son teknoloji kesim makinesi ile kusursuz geçişler.</p>
+            </div>
+        </div>
+
+        <div class="liste-item">
+            <div class="item-icon">🧪</div>
+            <div class="item-bilgi">
+                <h3>Saç Keratini</h3>
+                <p>Yıpranmış saçlar için onarıcı ve güçlendirici bakım.</p>
+            </div>
+        </div>
+
+        <div class="liste-item">
+            <div class="item-icon">🐲</div>
+            <div class="item-bilgi">
+                <h3>Ejder Meyveli Yüz Maskesi</h3>
+                <p>Cildi canlandıran ve ferahlatan özel bakım maskesi.</p>
+            </div>
         </div>
     </div>
 
